@@ -1,0 +1,36 @@
+# See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
+
+# dependencies
+/node_modules
+/.pnp
+.pnp.js
+
+# editor / logs
+.vscode/
+
+# testing
+/coverage
+
+# production
+/build
+
+# virtual environment directories
+env/
+venv/
+ENV/
+.env
+.env.test
+env*
+ENV*
+.venv/
+secret-variables.js
+
+# logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# OS cruft
+.DS_Store
+Thumbs.db
+#---
