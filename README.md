@@ -525,6 +525,7 @@ You can also test using a port-checking site like `canyouseeme.org` on port `300
 
 # 8. Keep the Express server running with PM2
 
+**[PM2 Plus Documentation](https://pm2.io/docs/plus/overview/)**
 Right now, if you close the terminal or reboot the VM, the server will stop. To fix that, use **PM2**, a process manager for Node.js.
 
 ### 8.1 Install PM2
