@@ -37,14 +37,21 @@ It is written around a real working example where the VM IP was `192.168.1.129` 
   - [8.1 Install PM2](#81-install-pm2)
   - [8.2 Start the app with PM2](#82-start-the-app-with-pm2)
   - [8.3 Enable PM2 startup on boot](#83-enable-pm2-startup-on-boot)
-  - [8.4 Common PM2 commands](#84-common-pm2-commands)
-    - [8.4.1 Fork mode](#841-fork-mode)
-    - [8.4.2 Setup startup script](#842-setup-startup-script)
-    - [8.4.3 Restart application on changes](#843-restart-application-on-changes)
-    - [8.4.4 Check status, logs, metrics](#844-check-status-logs-metrics)
-    - [8.4.5 Managing Processes](#845-managing-processes)
-    - [8.4.6 Misc](#846-misc)
-    - [8.4.7 Options that can be passed with the above commands](#847-options-that-can-be-passed-with-the-above-commands)
+  - [8.4 Common PM2 commands (Corrected and Simplified)](#84-common-pm2-commands-corrected-and-simplified)
+    - [8.4.1 Start your application](#841-start-your-application)
+    - [8.4.2 Enable PM2 to start on reboot](#842-enable-pm2-to-start-on-reboot)
+    - [8.4.3 Restart your app after updates](#843-restart-your-app-after-updates)
+    - [8.4.4 View logs](#844-view-logs)
+    - [8.4.5 List processes](#845-list-processes)
+    - [8.4.6 Stop or delete](#846-stop-or-delete)
+    - [8.4.7 Optional: watch mode for development](#847-optional-watch-mode-for-development)
+    - [8.4.8 Fork mode](#848-fork-mode)
+    - [8.4.9 Setup startup script](#849-setup-startup-script)
+    - [8.4.10 Restart application on changes](#8410-restart-application-on-changes)
+    - [8.4.11 Check status, logs, metrics](#8411-check-status-logs-metrics)
+    - [8.4.12 Managing Processes](#8412-managing-processes)
+    - [8.4.13 Misc](#8413-misc)
+    - [8.4.14 Options that can be passed with the above commands](#8414-options-that-can-be-passed-with-the-above-commands)
 - [9. Security notes](#9-security-notes)
 - [10. Troubleshooting checklist](#10-troubleshooting-checklist)
 
@@ -580,7 +587,7 @@ From now on:
 
 ---
 
-### 8.4 Common PM2 commands (Corrected & Simplified)
+### 8.4 Common PM2 commands (Corrected and Simplified)
 
 #### 8.4.1 Start your application
 
@@ -630,7 +637,7 @@ pm2 start app.js --name express-server --watch
 
 ---
 
-#### 8.4.1 Fork mode
+#### 8.4.8 Fork mode
 
 ```bash
 pm2 start app.js --name my-api          # Name process
@@ -638,21 +645,21 @@ pm2 start app.js --no-daemon            # Launch PM2 in no daemon
 pm2 start app.js --no-autorestart       # run 1-time scripts
 ```
 
-#### 8.4.2 Setup startup script
+#### 8.4.9 Setup startup script
 
 ```bash
 pm2 startup                             # Auto-boot on restart
 pm2 save                                # Save the current process list
 ```
 
-#### 8.4.3 Restart application on changes
+#### 8.4.10 Restart application on changes
 
 ```bash
 cd /path/to/my/app
 $ pm2 start env.js --watch --ignore-watch="node_modules"
 ```
 
-#### 8.4.4 Check status, logs, metrics
+#### 8.4.11 Check status, logs, metrics
 
 ```bash
 pm2 monit                       # Terminal Based Dashboard
@@ -666,7 +673,7 @@ pm2 reloadLogs                  # Reload all logs
 pm2 describe 0                  # Display all information about a specific process
 ```
 
-#### 8.4.5 Managing Processes
+#### 8.4.12 Managing Processes
 
 ```bash
 pm2 restart [app-name|all|id]
@@ -675,7 +682,7 @@ pm2 stop [app-name|all|id]
 pm2 delete [app-name|all|id]
 ```
 
-#### 8.4.6 Misc
+#### 8.4.13 Misc
 
 ```bash
 pm2 reset <process>             # Reset meta data (restarted time...)
@@ -684,7 +691,7 @@ pm2 ping                        # Ensure pm2 daemon has been launched
 pm2 sendSignal SIGUSR2 my-app   # Send system signal to script
 ```
 
-#### 8.4.7 Options that can be passed with the above commands:
+#### 8.4.14 Options that can be passed with the above commands:
 
 ```bash
 # Specify an app name
